@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "flet-todo-app"
+version = "0.1.0"
+description = ""
+authors = ["Plamen Ivanov <paco.iwanow@gmail.com>"]
+readme = "README.md"
+packages = [{include = "flet_todo_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flet = "^0.2.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
