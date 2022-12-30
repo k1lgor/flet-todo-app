@@ -10,7 +10,11 @@ class TodoApp(ft.UserControl):
         self.filter = ft.Tabs(
             selected_index=0,
             on_change=self.tabs_changed,
-            tabs=[ft.Tab(text="all"), ft.Tab(text="active"), ft.Tab(text="completed")],
+            tabs=[
+                ft.Tab(text="All", icon=ft.icons.BOOK),
+                ft.Tab(text="Active", icon=ft.icons.NOTIFICATIONS_ACTIVE),
+                ft.Tab(text="Completed", icon=ft.icons.DONE),
+            ],
         )
 
         return ft.Column(
@@ -51,9 +55,9 @@ class TodoApp(ft.UserControl):
         status = self.filter.tabs[self.filter.selected_index].text
         for task in self.tasks.controls:
             task.visible = (
-                status == "all"
-                or (status == "active" and task.completed is False)
-                or (status == "completed" and task.completed)
+                status == "All"
+                or (status == "Active" and task.completed is False)
+                or (status == "Completed" and task.completed)
             )
         super().update()
 
